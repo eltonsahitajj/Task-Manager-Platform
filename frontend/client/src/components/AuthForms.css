@@ -1,0 +1,111 @@
+/* frontend/client/src/components/AuthForms.css */
+
+.auth-form-container {
+  background-color: #f7f7f7;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.auth-form-container h2 {
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 2em;
+}
+
+.auth-form .form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.auth-form .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.auth-form .form-group input {
+  width: calc(100% - 20px);
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box; /* Include padding in width */
+  transition: border-color 0.3s ease;
+}
+
+.auth-form .form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.auth-form .form-group small {
+  display: block;
+  margin-top: 5px;
+  color: #777;
+  font-size: 0.9em;
+}
+
+.auth-form button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  width: 100%;
+}
+
+.auth-form button[type="submit"]:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.auth-form button[type="submit"]:disabled {
+  background-color: #a0c9ed;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.auth-message {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.auth-message.success {
+  background-color: #d4edda;
+  color: #28a745;
+  border: 1px solid #c3e6cb;
+}
+
+.auth-message.error {
+  background-color: #f8d7da;
+  color: #dc3545;
+  border: 1px solid #f5c6cb;
+}
+
+.switch-auth-mode {
+  margin-top: 25px;
+  color: #555;
+  font-size: 0.95em;
+}
+
+.switch-auth-mode span {
+  color: #007bff;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.switch-auth-mode span:hover {
+  color: #0056b3;
+}

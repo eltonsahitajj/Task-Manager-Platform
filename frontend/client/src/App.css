@@ -1,0 +1,599 @@
+/* General Body and App Layout */
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #708fbe; /* Light grey background */
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+.App {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 25px 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Softer, deeper shadow */
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Spacing between main sections */
+}
+
+/* Header */
+.App-header {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.App-header h1 {
+  color: #2c3e50;
+  margin: 0;
+  font-size: 2.2em;
+  flex-grow: 1; /* Allow h1 to take space */
+  text-align: left;
+}
+
+.auth-status, .auth-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px; /* Space from h1 if wrapped */
+}
+
+.auth-status span {
+  font-weight: 500;
+  color: #555;
+}
+
+/* Buttons */
+button {
+  background-color: #007bff; /* Primary blue */
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-1px); /* Slight lift effect */
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.logout-button {
+  background-color: #dc3545; /* Red for logout */
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}
+
+.auth-nav button {
+  background-color: #6c757d; /* Grey for auth nav */
+}
+
+.auth-nav button:hover {
+  background-color: #5a6268;
+}
+
+.auth-nav button.active {
+  background-color: #007bff; /* Active tab blue */
+  font-weight: bold;
+}
+
+
+/* Messages (Success, Error, Form Error) */
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.error-message, .form-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Forms (Login/Register) */
+.auth-forms-section {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.auth-forms-section h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+
+.auth-forms-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Spacing between form elements */
+  width: 100%;
+  max-width: 350px; /* Limit form width */
+}
+
+.auth-forms-section input[type="text"],
+.auth-forms-section input[type="password"] {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1em;
+  width: 100%;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.auth-forms-section button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1em;
+}
+
+.switch-auth-mode {
+  margin-top: 15px;
+  font-size: 0.95em;
+  color: #555;
+}
+
+.switch-auth-mode button {
+  background: none;
+  border: none;
+  color: #007bff;
+  text-decoration: underline;
+  padding: 0;
+  margin-left: 5px;
+  font-size: 1em;
+}
+
+.switch-auth-mode button:hover {
+  color: #0056b3;
+  transform: none;
+}
+
+/* Controls Container (Search, Filters, Sort) */
+.controls-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 15px; /* Spacing between filter/sort groups */
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.filters-container, .sort-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Spacing between individual filters/sorts */
+  align-items: center;
+}
+
+.search-input, .filter-select, .sort-select {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95em;
+  min-width: 120px; /* Ensure a minimum width */
+  box-sizing: border-box;
+}
+
+.sort-container label {
+  font-weight: 500;
+  color: #555;
+  margin-right: 5px;
+}
+
+/* Add Task Form */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.task-form input[type="text"],
+.task-form input[type="date"],
+.task-form textarea,
+.task-form select {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.task-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.task-form button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1em;
+}
+
+/* Task List */
+.task-list {
+  padding: 0;
+}
+
+.task-list h2 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+}
+
+.task-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-list ul li {
+  background-color: #ffffff;
+  padding: 15px 20px; /* Increased horizontal padding */
+  margin-bottom: 12px; /* Slightly increased margin */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* More prominent shadow for list items */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover, etc. */
+  border-left: 5px solid transparent; /* Default transparent border, will be overridden by priority */
+  position: relative; /* For delete button positioning */
+}
+
+.task-list ul li:hover {
+  transform: translateY(-3px); /* Subtle lift on hover */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.task-list ul li h3 {
+  margin: 0 0 8px 0;
+  color: #2c3e50;
+  font-size: 1.4em;
+  cursor: pointer; /* Indicate editable */
+}
+
+.task-list ul li p {
+  margin: 0 0 5px 0;
+  color: #555;
+  font-size: 0.95em;
+  cursor: pointer; /* Indicate editable */
+  white-space: pre-wrap; /* Preserve whitespace and allow wrapping */
+}
+
+.task-list ul li small {
+  display: block;
+  color: #888;
+  font-size: 0.85em;
+  margin-top: 10px;
+}
+
+/* Inline Edit Inputs */
+.edit-input, .edit-textarea, .edit-date-input, .edit-select {
+  padding: 8px 10px;
+  border: 1px solid #007bff; /* Blue border for active edit */
+  border-radius: 5px;
+  font-size: 1em;
+  margin: 5px 0;
+  display: block;
+  width: calc(100% - 20px); /* Full width minus padding */
+  box-sizing: border-box;
+}
+
+.edit-textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
+/* Task Status Dropdown */
+.task-list ul li select {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9em;
+  margin-left: 10px;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+/* Task Specific States */
+.task-done {
+  opacity: 0.7;
+  background-color: #e9ecef;
+  text-decoration: line-through;
+  border-left-color: #6c757d !important; /* Override priority color if done */
+}
+
+/* Due Date Styling (retained from previous) */
+.task-overdue {
+  background-color: #ffebee; /* Light red */
+  border-color: #e74c3c; /* Red */
+}
+
+.task-due-today {
+  background-color: #fffde7; /* Light yellow */
+  border-color: #f39c12; /* Orange */
+}
+
+.task-due-soon {
+  background-color: #e8f5e9; /* Light green */
+  border-color: #27ae60; /* Green */
+}
+
+/* Priority Styling (retained from previous) */
+.task-priority-high {
+  border-left: 5px solid #e74c3c; /* Red */
+}
+
+.task-priority-medium {
+  border-left: 5px solid #f39c12; /* Orange */
+}
+
+.task-priority-low {
+  border-left: 5px solid #27ae60; /* Green */
+}
+
+/* Delete Button on List Item */
+.delete-btn {
+  background-color: #dc3545;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 8px 12px;
+  font-size: 0.85em;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+
+/* Loading Screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  color: #007bff;
+  z-index: 9999;
+}
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.5em;
+}
+
+.modal-content p {
+  color: #555;
+  margin-bottom: 25px;
+  font-size: 1em;
+}
+
+.modal-task-title {
+  font-weight: bold;
+  color: #007bff;
+  margin-top: 10px;
+  font-size: 1.1em;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-confirm-delete {
+  background-color: #dc3545;
+}
+
+.btn-confirm-delete:hover {
+  background-color: #c82333;
+}
+
+.btn-cancel-delete {
+  background-color: #6c757d;
+}
+
+.btn-cancel-delete:hover {
+  background-color: #5a6268;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .App {
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .App-header {
+    flex-direction: column;
+    align-items: flex-start; /* Align left */
+    gap: 15px; /* Space between h1 and auth-nav */
+  }
+
+  .App-header h1 {
+    text-align: center;
+    width: 100%;
+  }
+
+  .auth-status, .auth-nav {
+    width: 100%;
+    justify-content: center; /* Center buttons */
+  }
+
+  .controls-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .filters-container, .sort-container {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch; /* Stretch filters */
+  }
+
+  .search-input, .filter-select, .sort-select {
+    width: 100%;
+    min-width: unset; /* Remove min-width for full stretch */
+  }
+
+  .task-form input,
+  .task-form textarea,
+  .task-form select,
+  .task-form button {
+    font-size: 0.95em;
+  }
+
+  .task-list ul li {
+    padding-right: 120px; /* Make space for delete button on smaller screens */
+  }
+
+  .delete-btn {
+    right: 10px;
+    top: auto;
+    bottom: 10px; /* Position at bottom right */
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    margin: 15px;
+    padding: 15px;
+  }
+
+  .App-header h1 {
+    font-size: 1.8em;
+  }
+
+  .task-list ul li h3 {
+    font-size: 1.2em;
+  }
+
+  .modal-content {
+    padding: 20px;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal-buttons button {
+    width: 100%;
+  }
+}
+
+/* In App.css */
+.add-subtask-btn {
+  background-color: #28a745; /* Green color */
+  position: absolute; /* Position it like the delete button */
+  top: 15px;
+  right: 100px; /* Adjust based on your layout, to the left of delete-btn */
+  padding: 8px 12px;
+  font-size: 0.85em;
+  /* Ensure it's not hidden by other elements, adjust z-index if needed */
+}
+
+.add-subtask-btn:hover {
+  background-color: #218838;
+}
+
+/* Adjust delete-btn if needed to make space for subtask button */
+.delete-btn {
+  /* Ensure there's enough space to the right of .add-subtask-btn */
+  right: 15px; /* Keep this to its current position */
+}
+
+/* For smaller screens, adjust positions */
+@media (max-width: 768px) {
+  .add-subtask-btn {
+    top: auto;
+    bottom: 10px;
+    right: 100px; /* Adjust to be next to delete button */
+  }
+  .delete-btn {
+    bottom: 10px;
+    right: 10px;
+  }
+}
