@@ -1,414 +1,464 @@
 /* General Body and App Layout */
 body {
-  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  font-family: 'Inter', sans-serif; /* Modern, readable sans-serif font */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #708fbe; /* Light grey background */
-  margin: 0;
-  padding: 0;
-  color: #333;
+  background-color: #aac4eb; /* Light gray background for the page */
+  color: #714040; /* Darker text for readability */
   line-height: 1.6;
 }
 
 .App {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 25px 30px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Softer, deeper shadow */
+  max-width: 900px; /* Max width for the app content */
+  margin: 30px auto; /* Center the app on the page with more vertical space */
+  padding: 30px;
+  background-color: #ffffff; /* White background for the main app container */
+  border-radius: 12px; /* Softer rounded corners */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* More pronounced, softer shadow */
   display: flex;
   flex-direction: column;
-  gap: 25px; /* Spacing between main sections */
+  gap: 25px; /* Consistent spacing between sections */
 }
 
 /* Header */
 .App-header {
-  text-align: center;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0; /* Subtle separator */
+  margin-bottom: 20px; /* Space below the header */
 }
 
 .App-header h1 {
-  color: #2c3e50;
+  font-size: 2.2em; /* Slightly larger title */
+  color: #2c3e50; /* Dark blue/grey for heading */
   margin: 0;
-  font-size: 2.2em;
-  flex-grow: 1; /* Allow h1 to take space */
-  text-align: left;
+  font-weight: 700;
 }
 
-.auth-status, .auth-nav {
+.auth-status {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 10px; /* Space from h1 if wrapped */
-}
-
-.auth-status span {
-  font-weight: 500;
-  color: #555;
-}
-
-/* Buttons */
-button {
-  background-color: #007bff; /* Primary blue */
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1em;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  flex-shrink: 0; /* Prevent buttons from shrinking */
-}
-
-button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-  transform: translateY(-1px); /* Slight lift effect */
-}
-
-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-  transform: none;
+  gap: 15px; /* Space between user info and button */
+  font-size: 0.95em;
 }
 
 .logout-button {
-  background-color: #dc3545; /* Red for logout */
+  background-color: #ef4444; /* Red for logout */
+  color: white;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 .logout-button:hover {
-  background-color: #c82333;
+  background-color: #dc2626;
+  transform: translateY(-1px);
 }
 
+/* Auth Navigation */
 .auth-nav button {
-  background-color: #6c757d; /* Grey for auth nav */
-}
-
-.auth-nav button:hover {
-  background-color: #5a6268;
+  background-color: transparent;
+  border: none;
+  color: #6200ea; /* Primary purple */
+  font-size: 1em;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: 500;
 }
 
 .auth-nav button.active {
-  background-color: #007bff; /* Active tab blue */
-  font-weight: bold;
+  background-color: #6200ea;
+  color: white;
 }
 
-
-/* Messages (Success, Error, Form Error) */
-.success-message {
-  background-color: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
-  padding: 12px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  text-align: center;
-  font-weight: 500;
+.auth-nav button:hover:not(.active) {
+  background-color: #e8eaf6; /* Light hover background */
 }
 
-.error-message, .form-error {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
-  padding: 12px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  text-align: center;
-  font-weight: 500;
-}
-
-/* Forms (Login/Register) */
-.auth-forms-section {
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.auth-forms-section h2 {
-  color: #2c3e50;
-  margin-bottom: 20px;
+/* Section Headings */
+h2 {
   font-size: 1.8em;
+  color: #2c3e50;
+  margin-top: 0; /* Remove default top margin */
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
 }
 
-.auth-forms-section form {
+/* Form Styles (Auth and Task Creation) */
+.auth-forms-section,
+.task-creation-section {
+  background-color: #f9f9f9; /* Slightly different background for sections */
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Inner shadow */
+}
+
+form {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Spacing between form elements */
-  width: 100%;
-  max-width: 350px; /* Limit form width */
+  gap: 15px; /* More space between form elements */
 }
 
-.auth-forms-section input[type="text"],
-.auth-forms-section input[type="password"] {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+form input[type="text"],
+form input[type="password"],
+form input[type="date"],
+form textarea,
+form select {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
   font-size: 1em;
-  width: 100%;
+  width: calc(100% - 30px); /* Account for padding */
   box-sizing: border-box; /* Include padding in width */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.auth-forms-section button {
-  width: 100%;
-  padding: 12px;
+form input:focus,
+form textarea:focus,
+form select:focus {
+  border-color: #6200ea; /* Primary color on focus */
+  box-shadow: 0 0 0 3px rgba(98, 0, 234, 0.2); /* Soft glow on focus */
+  outline: none;
+}
+
+form textarea {
+  min-height: 80px; /* Taller textarea */
+  resize: vertical;
+}
+
+form button[type="submit"],
+.cancel-subtask-btn {
+  background-color: #6200ea; /* Primary button color */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
   font-size: 1.1em;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  width: 100%; /* Full width button */
+}
+
+form button[type="submit"]:hover,
+.cancel-subtask-btn:hover {
+  background-color: #4b00c2;
+  transform: translateY(-1px);
+}
+
+form button[type="submit"]:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+.form-error {
+  color: #dc3545; /* Red for errors */
+  font-size: 0.9em;
+  margin-top: -10px; /* Pull error closer to input */
+  margin-bottom: 5px;
+  text-align: left;
 }
 
 .switch-auth-mode {
+  text-align: center;
   margin-top: 15px;
   font-size: 0.95em;
-  color: #555;
 }
 
 .switch-auth-mode button {
   background: none;
   border: none;
-  color: #007bff;
-  text-decoration: underline;
-  padding: 0;
+  color: #6200ea;
+  cursor: pointer;
+  font-weight: 600;
   margin-left: 5px;
-  font-size: 1em;
+  padding: 0;
 }
 
 .switch-auth-mode button:hover {
-  color: #0056b3;
-  transform: none;
+  text-decoration: underline;
 }
 
-/* Controls Container (Search, Filters, Sort) */
+/* Task List Section */
+.task-list-section {
+  padding: 25px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
 .controls-container {
   display: flex;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
-  gap: 15px; /* Spacing between filter/sort groups */
-  padding: 15px 0;
+  flex-direction: column; /* Stack filters and sorts vertically on smaller screens */
+  gap: 15px;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
   border-bottom: 1px solid #eee;
+}
+
+@media (min-width: 768px) {
+  .controls-container {
+    flex-direction: row; /* Horizontal on larger screens */
+    justify-content: space-between;
+    align-items: flex-end; /* Align to the bottom for various heights of controls */
+  }
 }
 
 .filters-container, .sort-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px; /* Spacing between individual filters/sorts */
+  flex-wrap: wrap; /* Allow items to wrap */
+  gap: 10px; /* Space between filter/sort elements */
   align-items: center;
 }
 
-.search-input, .filter-select, .sort-select {
+.search-input {
+  flex: 1 1 200px; /* Allow search input to grow but have a min width */
+  min-width: 150px;
   padding: 10px 12px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 0.95em;
-  min-width: 120px; /* Ensure a minimum width */
-  box-sizing: border-box;
+}
+
+.filter-select, .sort-select {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 0.95em;
+  cursor: pointer;
+  appearance: none; /* Remove default select arrow */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%20viewBox%3D%220%200%20292.4%20292.4%22%3E%3Cpath%20fill%3D%22%236200ea%22%20d%3D%22M287%20197.3l-11.4%2011.4c-3.1%203.1-8.2%203.1-11.3%200L146.2%2099.9%2038.1%20208.7c-3.1%203.1-8.2%203.1-11.3%200L15.4%20197.3c-3.1-3.1-3.1-8.2%200-11.3L135%2068.7c3.1-3.1%208.2-3.1%2011.3%200l119.5%20119.5c3.2%203.1%203.2%208.2%200%2011.3z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 12px auto;
+  min-width: 120px;
 }
 
 .sort-container label {
-  font-weight: 500;
+  font-size: 0.95em;
   color: #555;
   margin-right: 5px;
 }
 
-/* Add Task Form */
-.task-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-.task-form input[type="text"],
-.task-form input[type="date"],
-.task-form textarea,
-.task-form select {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 1em;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.task-form textarea {
-  min-height: 80px;
-  resize: vertical;
-}
-
-.task-form button {
-  width: 100%;
-  padding: 12px;
-  font-size: 1.1em;
-}
-
-/* Task List */
 .task-list {
-  padding: 0;
-}
-
-.task-list h2 {
-  color: #2c3e50;
-  margin-bottom: 15px;
-  font-size: 1.8em;
-}
-
-.task-list ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.task-list ul li {
+.task-item {
   background-color: #ffffff;
-  padding: 15px 20px; /* Increased horizontal padding */
-  margin-bottom: 12px; /* Slightly increased margin */
+  padding: 15px 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* More prominent shadow for list items */
-  transition: all 0.3s ease-in-out; /* Smooth transition for hover, etc. */
-  border-left: 5px solid transparent; /* Default transparent border, will be overridden by priority */
-  position: relative; /* For delete button positioning */
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Lighter shadow for individual items */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-left: 5px solid #6200ea; /* Accent border on left */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.task-list ul li:hover {
-  transform: translateY(-3px); /* Subtle lift on hover */
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+.task-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
-.task-list ul li h3 {
-  margin: 0 0 8px 0;
-  color: #2c3e50;
-  font-size: 1.4em;
-  cursor: pointer; /* Indicate editable */
+/* Indentation for subtasks */
+.task-item {
+  margin-left: calc(var(--indent-level, 0) * 25px); /* Increased indent */
+  /* If you want to use border colors to indicate depth, you can adjust border-left-color here based on depth */
+  border-left-color: hsl(258, 100%, calc(70% - (var(--indent-level, 0) * 5%))); /* Darker purple for deeper levels */
 }
 
-.task-list ul li p {
-  margin: 0 0 5px 0;
-  color: #555;
+
+.task-content {
+    display: flex; /* Make task content a flex container */
+    align-items: flex-start; /* Align items to the top */
+    flex-grow: 1;
+    flex-wrap: wrap; /* Allow content to wrap */
+}
+
+/* Checkbox for task completion */
+.task-completion-checkbox {
+  margin-right: 15px; /* Space between checkbox and title */
+  min-width: 20px; /* Ensure it's not too small */
+  min-height: 20px;
+  cursor: pointer;
+  align-self: flex-start; /* Align with the top of the task content */
+  transform: scale(1.1); /* Slightly larger checkbox */
+  accent-color: #6200ea; /* Primary color for checkbox */
+}
+
+.task-title {
+  font-size: 1.4em; /* Larger title */
+  margin: 0;
+  flex-grow: 1; /* Allow title to take up remaining space */
+  text-align: left; /* Align title text to the left */
+  font-weight: 600;
+  color: #333;
+  line-height: 1.2;
+  cursor: pointer; /* Still allow clicking to edit */
+}
+
+.task-description {
   font-size: 0.95em;
-  cursor: pointer; /* Indicate editable */
-  white-space: pre-wrap; /* Preserve whitespace and allow wrapping */
+  color: #555;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 35px; /* Indent these to align with the title, past the checkbox */
+  text-align: left;
+  width: calc(100% - 35px); /* Adjust width */
+  cursor: pointer; /* Allow clicking to edit */
 }
 
-.task-list ul li small {
-  display: block;
-  color: #888;
+.task-detail {
   font-size: 0.85em;
-  margin-top: 10px;
+  color: #666;
+  margin: 2px 0;
+  margin-left: 35px; /* Indent */
+  width: calc(100% - 35px); /* Adjust width */
 }
 
-/* Inline Edit Inputs */
+.task-detail span {
+  font-weight: 500;
+  color: #444;
+  cursor: pointer; /* Allow clicking to edit */
+}
+
+.task-timestamps {
+  font-size: 0.75em;
+  color: #888;
+  margin-top: 10px;
+  margin-left: 35px; /* Indent */
+  width: calc(100% - 35px); /* Adjust width */
+}
+
+/* Editing Inputs */
 .edit-input, .edit-textarea, .edit-date-input, .edit-select {
   padding: 8px 10px;
-  border: 1px solid #007bff; /* Blue border for active edit */
-  border-radius: 5px;
+  border: 1px solid #6200ea; /* Highlight border for editing */
+  border-radius: 6px;
   font-size: 1em;
-  margin: 5px 0;
-  display: block;
-  width: calc(100% - 20px); /* Full width minus padding */
   box-sizing: border-box;
+  width: calc(100% - 35px - 10px); /* Adjust for checkbox and padding */
+  margin-left: 35px;
 }
 
 .edit-textarea {
   min-height: 60px;
-  resize: vertical;
 }
 
-/* Task Status Dropdown */
-.task-list ul li select {
-  padding: 6px 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 0.9em;
-  margin-left: 10px;
-  background-color: #f8f8f8;
-  cursor: pointer;
-}
-
-/* Task Specific States */
+/* Status and Priority Specific Classes */
 .task-done {
-  opacity: 0.7;
-  background-color: #e9ecef;
-  text-decoration: line-through;
-  border-left-color: #6c757d !important; /* Override priority color if done */
+  opacity: 0.7; /* Dim done tasks */
+  text-decoration: line-through; /* Strikethrough done tasks */
+  color: #888; /* Grey out text */
+  border-left-color: #bbb; /* Lighter border for done tasks */
 }
 
-/* Due Date Styling (retained from previous) */
+.task-done .task-title,
+.task-done .task-description,
+.task-done .task-detail,
+.task-done .task-timestamps {
+    color: #888; /* Ensure all text within is greyed */
+}
+
 .task-overdue {
-  background-color: #ffebee; /* Light red */
-  border-color: #e74c3c; /* Red */
+  border-left-color: #dc3545; /* Red border for overdue */
 }
-
 .task-due-today {
-  background-color: #fffde7; /* Light yellow */
-  border-color: #f39c12; /* Orange */
+  border-left-color: #ffc107; /* Orange/Yellow for due today */
 }
-
 .task-due-soon {
-  background-color: #e8f5e9; /* Light green */
-  border-color: #27ae60; /* Green */
+  border-left-color: #007bff; /* Blue for due soon */
 }
 
-/* Priority Styling (retained from previous) */
 .task-priority-high {
-  border-left: 5px solid #e74c3c; /* Red */
+  /* You can add a subtle background or icon */
 }
-
 .task-priority-medium {
-  border-left: 5px solid #f39c12; /* Orange */
+  /* Styles for medium priority */
 }
-
 .task-priority-low {
-  border-left: 5px solid #27ae60; /* Green */
+  /* Styles for low priority */
 }
 
-/* Delete Button on List Item */
+
+/* Task Actions (Buttons) */
+.task-actions {
+  display: flex;
+  gap: 10px; /* Provides spacing between buttons */
+  margin-top: 15px; /* More space above buttons */
+  justify-content: flex-end; /* Align buttons to the right */
+  flex-wrap: wrap; /* Allows buttons to wrap if space is tight */
+  border-top: 1px dashed #eee; /* Subtle separator for actions */
+  padding-top: 15px;
+}
+
+.add-subtask-btn, .mark-subtasks-done-btn, .delete-btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.add-subtask-btn {
+  background-color: #28a745; /* Green for add */
+  color: white;
+}
+.add-subtask-btn:hover {
+  background-color: #218838;
+}
+
+.mark-subtasks-done-btn {
+  background-color: #6f42c1; /* Purple for mark done subtasks */
+  color: white;
+}
+.mark-subtasks-done-btn:hover {
+  background-color: #5933a3;
+}
+
 .delete-btn {
-  background-color: #dc3545;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  padding: 8px 12px;
-  font-size: 0.85em;
+  background-color: #dc3545; /* Red for delete */
+  color: white;
 }
-
 .delete-btn:hover {
   background-color: #c82333;
 }
 
-
-/* Loading Screen */
-.loading-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5em;
-  color: #007bff;
-  z-index: 9999;
+/* Subtask List */
+.subtask-list {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0 0; /* Space above subtasks, no left padding */
+  border-top: 1px solid #eee; /* Separator for subtasks */
+  padding-top: 15px;
 }
 
-/* Modal Styling */
+
+/* Modal Styles */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Darker overlay */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -416,33 +466,34 @@ button:disabled {
 }
 
 .modal-content {
-  background-color: #ffffff;
+  background: #ffffff;
   padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   text-align: center;
-  max-width: 400px;
+  max-width: 450px;
   width: 90%;
-  animation: fadeIn 0.3s ease-out;
+  position: relative;
 }
 
 .modal-content h3 {
   margin-top: 0;
   color: #2c3e50;
-  font-size: 1.5em;
+  font-size: 1.6em;
+  margin-bottom: 15px;
 }
 
 .modal-content p {
   color: #555;
-  margin-bottom: 25px;
-  font-size: 1em;
+  margin-bottom: 20px;
+  font-size: 1.05em;
 }
 
 .modal-task-title {
-  font-weight: bold;
-  color: #007bff;
-  margin-top: 10px;
+  font-weight: 600;
+  color: #333;
   font-size: 1.1em;
+  margin-bottom: 10px;
 }
 
 .modal-buttons {
@@ -451,149 +502,163 @@ button:disabled {
   gap: 15px;
 }
 
-.btn-confirm-delete {
-  background-color: #dc3545;
+.btn-confirm-delete, .btn-cancel-delete {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
 }
 
+.btn-confirm-delete {
+  background-color: #dc3545;
+  color: white;
+}
 .btn-confirm-delete:hover {
   background-color: #c82333;
 }
 
 .btn-cancel-delete {
   background-color: #6c757d;
+  color: white;
 }
-
 .btn-cancel-delete:hover {
   background-color: #5a6268;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+
+/* Loading and Error Messages */
+.loading-screen,
+p.error-message {
+  text-align: center;
+  font-size: 1.1em;
+  color: #888;
+  padding: 20px;
+}
+p.error-message {
+    color: #dc3545;
+    font-weight: 500;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .App {
-    margin: 20px auto;
-    padding: 20px;
-  }
 
-  .App-header {
-    flex-direction: column;
-    align-items: flex-start; /* Align left */
-    gap: 15px; /* Space between h1 and auth-nav */
-  }
-
-  .App-header h1 {
-    text-align: center;
-    width: 100%;
-  }
-
-  .auth-status, .auth-nav {
-    width: 100%;
-    justify-content: center; /* Center buttons */
-  }
-
-  .controls-container {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .filters-container, .sort-container {
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch; /* Stretch filters */
-  }
-
-  .search-input, .filter-select, .sort-select {
-    width: 100%;
-    min-width: unset; /* Remove min-width for full stretch */
-  }
-
-  .task-form input,
-  .task-form textarea,
-  .task-form select,
-  .task-form button {
-    font-size: 0.95em;
-  }
-
-  .task-list ul li {
-    padding-right: 120px; /* Make space for delete button on smaller screens */
-  }
-
-  .delete-btn {
-    right: 10px;
-    top: auto;
-    bottom: 10px; /* Position at bottom right */
-  }
+/* Toast Notification Styles */
+.toast-notification {
+  position: fixed;
+  top: 25px; /* Slightly more space from top */
+  right: 25px; /* Slightly more space from right */
+  padding: 15px 25px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  opacity: 0; /* Start hidden */
+  animation: fadeInOut 4s forwards; /* Fade in, stay, fade out */
+  z-index: 1050; /* Above modals if necessary */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-@media (max-width: 480px) {
-  .App {
-    margin: 15px;
-    padding: 15px;
-  }
-
-  .App-header h1 {
-    font-size: 1.8em;
-  }
-
-  .task-list ul li h3 {
-    font-size: 1.2em;
-  }
-
-  .modal-content {
-    padding: 20px;
-  }
-
-  .modal-buttons {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .modal-buttons button {
-    width: 100%;
-  }
+.toast-notification.success {
+  background-color: #28a745; /* Green */
 }
 
-/* In App.css */
-.add-subtask-btn {
-  background-color: #28a745; /* Green color */
-  position: absolute; /* Position it like the delete button */
-  top: 15px;
-  right: 100px; /* Adjust based on your layout, to the left of delete-btn */
-  padding: 8px 12px;
-  font-size: 0.85em;
-  /* Ensure it's not hidden by other elements, adjust z-index if needed */
+.toast-notification.error {
+  background-color: #dc3545; /* Red */
 }
 
-.add-subtask-btn:hover {
-  background-color: #218838;
+.toast-notification.info { /* New info type for notifications */
+  background-color: #17a2b8; /* Blue-green for info */
 }
 
-/* Adjust delete-btn if needed to make space for subtask button */
-.delete-btn {
-  /* Ensure there's enough space to the right of .add-subtask-btn */
-  right: 15px; /* Keep this to its current position */
+/* Keyframes for fade in/out animation */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-30px); } /* Start above and hidden */
+  10% { opacity: 1; transform: translateY(0); } /* Fade in and move to position */
+  90% { opacity: 1; transform: translateY(0); } /* Stay visible */
+  100% { opacity: 0; transform: translateY(-30px); } /* Fade out and move up */
 }
 
-/* For smaller screens, adjust positions */
-@media (max-width: 768px) {
-  .add-subtask-btn {
-    top: auto;
-    bottom: 10px;
-    right: 100px; /* Adjust to be next to delete button */
-  }
-  .delete-btn {
-    bottom: 10px;
-    right: 10px;
-  }
+/* frontend/client/src/App.css */
+
+/* --- NEW: Profile Settings Styling --- */
+.profile-settings-button {
+  background-color: #007bff; /* Blue for profile button */
+  color: white;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  margin-right: 10px; /* Space between profile and logout button */
+}
+
+.profile-settings-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.profile-settings-section {
+  background-color: #f9f9f9;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.profile-settings-section label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95em;
+  color: #555;
+  margin-bottom: 10px; /* Space between labels */
+}
+
+.profile-settings-section input[type="text"],
+.profile-settings-section input[type="password"] {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  width: calc(100% - 24px); /* Account for padding */
+  box-sizing: border-box;
+  margin-top: 5px; /* Space between label text and input */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-settings-section input:focus {
+  border-color: #6200ea;
+  box-shadow: 0 0 0 3px rgba(98, 0, 234, 0.2);
+  outline: none;
+}
+
+.profile-settings-section button[type="submit"] {
+  background-color: #6200ea;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.profile-settings-section button[type="submit"]:hover {
+  background-color: #4b00c2;
+  transform: translateY(-1px);
+}
+
+.profile-settings-section button[type="submit"]:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
 }
